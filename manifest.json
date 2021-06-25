@@ -1,0 +1,40 @@
+{
+
+  "manifest_version": 2,
+  "name": "Take Notes",
+  "version": "1.0",
+
+  "description": "Take simple notes while browsing",
+  "icons": {
+    "48": "icons/note.png"
+  },
+
+  "permissions": [
+    "activeTab", "storage"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/note.png",
+    "default_title": "Take Notes",
+    "default_popup": "html/note.html"
+  },
+
+  "background":
+  {
+      "scripts": ["jquery/jquery-3.6.0.min.js", "jquery/jquery-ui.min.js", "bootstrap/bootstrap.bundle.min.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["bootstrap/bootstrap.min.css"],
+      "js": ["jquery/jquery-3.6.0.min.js", "jquery/jquery-ui.min.js", "bootstrap/bootstrap.bundle.min.js", "js/script.js"]
+    }
+  ],
+
+  "options_ui": {
+    "page": "html/options.html",
+    "browser_style": true
+  }
+
+}
